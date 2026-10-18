@@ -466,9 +466,6 @@ Interpretasi hasil:
 Hasil ini menunjukkan bahwa cache dan rate limiting berfungsi sesuai tujuan, yaitu mempercepat konten frontend serta melindungi lapisan API dan database dari lonjakan trafik.
 
 ### Bukti Verifikasi:
-Hasil Apache Benchmark ke web frontend dari kusakabe:
-
-
 Ringkasan status code pada access.log dan bukti penolakan rate limit pada error.log gojo:
 
 ![Bukti Soal 20 - Analisis Log Gojo](images/soal20_log_gojo.png)
