@@ -412,13 +412,6 @@ Pengujian dilakukan secara bertahap:
 3. Saat kedua worker utama dinyalakan kembali, trafik kembali ke nanami dan todo, sedangkan kirara kembali menjadi cadangan.
 
 ### Bukti Verifikasi:
-Konfigurasi failover dan health check pada geto:
-
-![Bukti Soal 18 - Geto Failover](images/soal18_geto.png)
-
-Layanan Nginx pada nanami dan todo dihentikan:
-
-![Bukti Soal 18 - Simulasi Gangguan Worker Utama](images/soal18_gangguan.png)
 
 Request ke /api dari client dijawab oleh kirara tanpa error 502:
 
@@ -438,15 +431,8 @@ Untuk rate limiting, kami mendefinisikan limit_req_zone API_LIMIT berbasis binar
 Pada pengujian cache, request pertama ke jujutsu.k39.com menunjukkan X-Cache-Status MISS, sedangkan request berikutnya menunjukkan HIT dan dilayani dari cache gojo tanpa menghubungi maki atau panda. Pada pengujian rate limiting yang dilakukan terpisah, request beruntun ke /api memperlihatkan sebagian respons berubah menjadi 429 ketika batas terlampaui.
 
 ### Bukti Verifikasi:
-Konfigurasi proxy cache dan rate limiting pada gojo:
 
-![Bukti Soal 19 - Konfigurasi Gojo Cache dan Rate Limit](images/soal19_gojo.png)
-
-Header X-Cache-Status yang berubah dari MISS menjadi HIT pada request berikutnya:
-
-![Bukti Soal 19 - Proxy Cache MISS dan HIT](images/soal19_cache.png)
-
-Request beruntun ke endpoint /api yang mulai ditolak dengan status 429:
+Header X-Cache-Status yang berubah dari MISS menjadi HIT pada request berikutnya: dan Request beruntun ke endpoint /api yang mulai ditolak dengan status 429:
 
 ![Bukti Soal 19 - Rate Limiting API](images/soal19_ratelimit.png)
 
@@ -482,15 +468,6 @@ Hasil ini menunjukkan bahwa cache dan rate limiting berfungsi sesuai tujuan, yai
 ### Bukti Verifikasi:
 Hasil Apache Benchmark ke web frontend dari kusakabe:
 
-![Bukti Soal 20 - Benchmark Web Frontend](images/soal20_benchmark_web.png)
-
-Hasil Apache Benchmark ke endpoint API sebelum rate limiting diaktifkan (baseline):
-
-![Bukti Soal 20 - Benchmark API Baseline](images/soal20_benchmark_api_baseline.png)
-
-Hasil Apache Benchmark ke endpoint API saat rate limiting aktif:
-
-![Bukti Soal 20 - Benchmark API Rate Limiting](images/soal20_benchmark_api_ratelimit.png)
 
 Ringkasan status code pada access.log dan bukti penolakan rate limit pada error.log gojo:
 
