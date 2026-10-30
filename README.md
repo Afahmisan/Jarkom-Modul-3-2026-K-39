@@ -1,9 +1,9 @@
 # Jarkom-Modul-3-2026-K-39
 
-| Nama | NRP |
-|---|---|
-| Asfia Fahmisan | 5027251043 |
-| Muhammad Atallah Mas'udi | 5027251071 |
+| Nama | NRP | Pengerjaan | 
+|---|---|---|
+| Asfia Fahmisan | 5027251043 |1-10 |
+| Muhammad Atallah Mas'udi | 5027251071 |11-20| 
 
 ---
 
